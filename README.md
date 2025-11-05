@@ -3,31 +3,31 @@
 
 import random
 
-# List of choices
+# Choices list
 game_images = ["Rock", "Paper", "Scissors"]
 
-# Take user input
-user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissors:\n"))
+# Asking user for their choice
+user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors:\n"))
 
-# Check for valid input
-if user_choice < 0 or user_choice > 2:
-    print("You typed an invalid number. You lose!")
-else:
-    print(f"You chose: {game_images[user_choice]}")
+# Check if user entered a valid number
+if user_choice >= 0 and user_choice <= 2:
+    print("You chose:", game_images[user_choice])
 
-    # Computer choice
+    # Computer makes a random choice
     computer_choice = random.randint(0, 2)
-    print(f"Computer chose: {game_images[computer_choice]}")
+    print("Computer chose:", game_images[computer_choice])
 
-    # Game logic
+    # Game rules
     if user_choice == computer_choice:
         print("It's a draw!")
-    elif (user_choice == 0 and computer_choice == 2) or \
-         (user_choice == 1 and computer_choice == 0) or \
-         (user_choice == 2 and computer_choice == 1):
+    elif user_choice == 0 and computer_choice == 2:
+        print("You win!")
+    elif user_choice == 2 and computer_choice == 0:
+        print("You lose!")
+    elif user_choice > computer_choice:
         print("You win!")
     else:
         print("You lose!")
-
-    print("You win!")
+else:
+    print("You typed an invalid number. You lose!")
 
